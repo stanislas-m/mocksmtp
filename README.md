@@ -56,14 +56,13 @@ package mailers_test
 import (
 	"testing"
 
-    "github.com/stanislas-m/mocksmtp"
-    "github.com/stretchr/testify/require"
-    "gitlab.com/stanislas-m/mybuffaloproject/mailers"
+	"github.com/stretchr/testify/require"
+	"gitlab.com/stanislas-m/mybuffaloproject/mailers"
 )
 
 func Test_SendRegistrationMail(t *testing.T) {
     r := require.New(t)
-    ms, v := mailers.SMTP.(*mocksmtp.Server)
+    ms, v := mailers.SMTP.(*MockSMTP)
     r.True(v)
     // Clear SMTP queue after test
     defer ms.Clear()
