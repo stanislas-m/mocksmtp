@@ -62,7 +62,7 @@ import (
 
 func Test_SendRegistrationMail(t *testing.T) {
     r := require.New(t)
-    ms, v := mailers.SMTP.(*MockSMTP)
+    ms, v := mailers.SMTP.(*mocksmtp.MockSMTP)
     r.True(v)
     // Clear SMTP queue after test
     defer ms.Clear()
